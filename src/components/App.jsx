@@ -1,3 +1,6 @@
+import LeaveFeedback from './LeaveFeedback/LeaveFeedback'
+
+
 export const App = () => {
   return (
     <div
@@ -10,7 +13,8 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      React homework template
+      <LeaveFeedback/>
     </div>
+    
   );
 };
