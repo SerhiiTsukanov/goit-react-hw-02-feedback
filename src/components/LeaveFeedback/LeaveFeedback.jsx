@@ -10,19 +10,35 @@ class LeaveFeedback extends React.Component {
         bad: 0
     };
 
-    handleIncrement = () => { };
+    handleIncrement = () => { 
+        this.setState({
+
+        })
+    };
 
     handleDecrement = () => { };
     
     render() {
         return (
             <div>
-            <h1>Please leave feedback</h1>
-            <div> 
-                <button type="button" onClic={this.handleIncrement}>{this.state.good}</button>
-                <button type="button" onClic={this.handleIncrement}>{this.state.neutral}</button>
-                <button type="button" onClic={this.handleIncrement}>{this.state.bad}</button>
-                </div>
+                <h1>Please leave feedback</h1>
+                <div> 
+                    <button type="button" onClic={this.handleIncrement}>Good</button>
+                    <button type="button" onClic={this.handleIncrement}>Neutral</button>
+                    <button type="button" onClic={this.handleIncrement}>Bad</button>
+                    </div>
+                <h1>Statistics</h1>
+                <ul>
+                    <li>
+                        <span>Good:{this.state.good}</span>
+                    </li>
+                    <li>
+                        <span>Good:{this.state.neutral}</span>
+                    </li>
+                    <li>
+                        <span>Good:{this.state.bad}</span>
+                    </li>
+                </ul>
             </div>
         )
     }
