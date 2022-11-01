@@ -13,7 +13,7 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      <LeaveFeedback/>
+      <LeaveFeedback good={0} neutral={0} bad={0}/>
     </div>
     
   );
