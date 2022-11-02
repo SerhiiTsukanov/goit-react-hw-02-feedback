@@ -8,39 +8,49 @@ class LeaveFeedback extends React.Component {
         good: 0,
         neutral: 0,
         bad: 0,
+        total: 0,
+        percentage: 0,
     };
 
+    total = 0;
+    percentage = 100;
 
-
-
-    handleIncrementGood = () => { 
+    handleIncrement = () => { 
+        this.total = this.total + 1
+        this.percentage = 100 / this.total * this.state.good
         this.setState(prevState => ({
             good: prevState.good + 1,
-            
-        }));
-        
+        })); 
     };
 
-     handleIncrementNeutral = () => { 
+    handleIncrementNeutral = () => { 
+        this.total = this.total + 1
+        this.percentage = 100 / this.total * this.state.good
         this.setState(prevState => ({
             neutral: prevState.neutral + 1,
         }));
     };
 
-     handleIncrementBad = () => { 
+    handleIncrementBad = () => { 
+        this.total = this.total + 1
+        this.percentage = 100 / this.total * this.state.good
         this.setState(prevState => ({
             bad: prevState.bad + 1,
         }));
     };
 
-    
+    totalS() {
+        return (
+            this.total = this.state.good + this.state.neutral + this.state.bad
+        )
+    };
     
     render() {
         return (
             <div>
                 <h1>Please leave feedback</h1>
                 <div> 
-                    <button type="button" onClick={this.handleIncrementGood}>good</button>
+                    <button type="button" onClick={this.handleIncrement}>Good</button>
                     <button type="button" onClick={this.handleIncrementNeutral}>Neutral</button>
                     <button type="button" onClick={this.handleIncrementBad}>Bad</button>
                 </div>
@@ -57,10 +67,10 @@ class LeaveFeedback extends React.Component {
                         <span>Bad:{this.state.bad}</span>
                     </li>
                     <li>
-                        <span>Total:{}</span>
+                        <span>Total:{this.total}</span>
                     </li>
                     <li>
-                        <span>Positive feedback:{this.countPositiveFeedbackPercentage}</span>
+                        <span>Positive feedback:{this.percentage}%</span>
                     </li>
                 </ul>
                 </div>
