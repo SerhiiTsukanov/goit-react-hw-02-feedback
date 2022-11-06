@@ -8,14 +8,15 @@ class LeaveFeedback extends React.Component {
         good: 0,
         neutral: 0,
         bad: 0,
-        total: 0,
-        percentage: 0,
+        visible: false,
     };
 
     total = 0;
     percentage = 100;
+    
 
     handleIncrement = () => { 
+        this.setState({ visible: true });
         this.total = this.total + 1
         this.percentage = 100 / this.total * this.state.good
         this.setState(prevState => ({
@@ -24,6 +25,7 @@ class LeaveFeedback extends React.Component {
     };
 
     handleIncrementNeutral = () => { 
+        this.setState({ visible: true });
         this.total = this.total + 1
         this.percentage = 100 / this.total * this.state.good
         this.setState(prevState => ({
@@ -32,6 +34,7 @@ class LeaveFeedback extends React.Component {
     };
 
     handleIncrementBad = () => { 
+        this.setState({ visible: true });
         this.total = this.total + 1
         this.percentage = 100 / this.total * this.state.good
         this.setState(prevState => ({
@@ -55,7 +58,8 @@ class LeaveFeedback extends React.Component {
                     <button type="button" onClick={this.handleIncrementBad}>Bad</button>
                 </div>
                 <h1>Statistics</h1>
-                <div class="drop__statistics">
+                {this.state.visible && (
+                    <div class="drop__statistics">
                 <ul>
                     <li>
                         <span>Good:{this.state.good}</span>
@@ -74,9 +78,12 @@ class LeaveFeedback extends React.Component {
                     </li>
                 </ul>
                 </div>
+                )}
+                
             </div>
         )
     }
 }
 
 export default LeaveFeedback;
+
