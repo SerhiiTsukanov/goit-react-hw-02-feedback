@@ -1,6 +1,7 @@
 import LeaveFeedback from './LeaveFeedback/LeaveFeedback';
 
 
+
 export const App = () => {
   return (
     <div
@@ -13,7 +14,7 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      <LeaveFeedback good={0} neutral={0} bad={0} />
+      <LeaveFeedback good={0} neutral={0} bad={0}/>
       
     </div>
     

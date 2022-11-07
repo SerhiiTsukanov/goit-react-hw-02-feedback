@@ -12,41 +12,48 @@ class LeaveFeedback extends React.Component {
     };
 
     total = 0;
-    percentage = 100;
+    veryGood = 100;
+    positivePercentage = 0;
     
 
     handleIncrement = () => { 
         this.setState({ visible: true });
-        this.total = this.total + 1
-        this.percentage = 100 / this.total * this.state.good
         this.setState(prevState => ({
             good: prevState.good + 1,
         })); 
+        this.total = this.total + 1
+        this.positivePercentage = this.percentage();
     };
 
     handleIncrementNeutral = () => { 
         this.setState({ visible: true });
-        this.total = this.total + 1
-        this.percentage = 100 / this.total * this.state.good
         this.setState(prevState => ({
             neutral: prevState.neutral + 1,
         }));
+        this.total = this.total + 1
+        this.positivePercentage = this.percentage();
     };
 
     handleIncrementBad = () => { 
         this.setState({ visible: true });
-        this.total = this.total + 1
-        this.percentage = 100 / this.total * this.state.good
         this.setState(prevState => ({
             bad: prevState.bad + 1,
         }));
+        this.total = this.total + 1
+        this.positivePercentage = this.percentage();
     };
 
-    totalS() {
+    percentage = () => {
         return (
-            this.total = this.state.good + this.state.neutral + this.state.bad
+            this.positivePercentage = ( this.veryGood / this.total ) * this.state.good
         )
     };
+
+    // totalS() {
+    //     return (
+    //         this.total = this.state.good + this.state.neutral + this.state.bad
+    //     )
+    // };
     
     render() {
         return (
@@ -74,7 +81,7 @@ class LeaveFeedback extends React.Component {
                         <span>Total:{this.total}</span>
                     </li>
                     <li>
-                        <span>Positive feedback:{this.percentage}%</span>
+                        <span>Positive feedback:{this.positivePercentage}%</span>
                     </li>
                 </ul>
                 </div>
